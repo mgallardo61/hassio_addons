@@ -16,7 +16,7 @@ jobs:
           
       - name: Simple replace string in file
         run: |
-          sed -i 's/"version": "[^"]*"/"version": "$VERSION"/g' config.yaml
+          sed -i 's/"version": "[^"]*"/"version": "${{ steps.get_version.outputs.version }}"/g' config.yaml
           sed -i 's/"upstream": "[^"]*"/"upstream": "$VERSION"/g' config.yaml
 
       - name: Check if string was replaced
