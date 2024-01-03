@@ -17,23 +17,17 @@ jobs:
           VERSION=$(curl -s "https://hub.docker.com/v2/repositories/alexta69/metube/tags" | jq -r '.results[1].name')
           echo "Container Version is $VERSION"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-          
-      - name: Set Date
-        id: set-date
-        run: |
-          echo "Date is $(date +'%Y-%m-%d')"
-          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
         
       - name: replace metube version
         run: |
-          sed -i 's/"version": "[^"]*"/"version": "${{ steps.set-date.outputs.date }}"/g' metube/config.json
-          sed -i 's/"upstream": "[^"]*"/"upstream": "${{ steps.set-date.outputs.date }}"/g' metube/config.json
+          sed -i 's/"version": "[^"]*"/"version": "${{ steps.get_metube_version.outputs.date }}"/g' metube/config.json
+          sed -i 's/"upstream": "[^"]*"/"upstream": "${{ steps.get_metube_version.outputs.date }}"/g' metube/config.json
 
       - name: check if metube version was replaced
         uses: GuillaumeFalourd/assert-command-line-output@v2
         with:
           command_line: cat metube/config.json
-          contains: "${{ steps.set-date.outputs.date }}"
+          contains: "${{ steps.get_metube_version.outputs.date }}"
 
       - name: upload
         run: |
