@@ -10,7 +10,7 @@ jobs:
       - name: get metube version
         id: get_metube_version
         run: |
-          VERSION=$(curl -s "https://api.github.com/repos/advplyr/audiobookshelf/releases/latest" | jq -r '.tag_name' | sed 's/v//')
+          VERSION=$(curl -s "https://api.github.com/repos/alexta69/metube/releases/latest" | jq -r '.tag_name' | sed 's/v//')
           echo "Container Version is $VERSION"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           
