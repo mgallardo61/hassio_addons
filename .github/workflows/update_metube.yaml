@@ -13,8 +13,8 @@ jobs:
         
       - name: replace metube version
         run: |
-          sed -i 's/"version": "[^"]*"/"version": "$VERSION"/g' metube/config.json
-          sed -i 's/"upstream": "[^"]*"/"upstream": "$VERSION"/g' metube/config.json
+          sed -i 's/"version": "[^"]*"/"version": "$date"/g' metube/config.json
+          sed -i 's/"upstream": "[^"]*"/"upstream": "$date"/g' metube/config.json
 
       - name: check if metube version was replaced
         uses: GuillaumeFalourd/assert-command-line-output@v2
