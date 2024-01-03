@@ -2,11 +2,7 @@ name: Auto Update metube
 on:
   schedule:
     - cron: '0 23 * * *'  # Täglich um 23 Uhr UTC
-  workflow_dispatch:
-    inputs:
-      manual_trigger:
-        description: 'Manueller Auslöser'
-        required: false
+  workflow_dispatch
         
 jobs:
   test:
