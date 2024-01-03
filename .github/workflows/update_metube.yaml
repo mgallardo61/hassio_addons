@@ -10,6 +10,7 @@ jobs:
       - name: Set Date
         id: set-date
         run: echo "date=$('%Y-%m-%d')" >> $GITHUB_ENV
+        
       - name: replace metube version
         run: |
           sed -i 's/"version": "[^"]*"/"version": "$VERSION"/g' metube/config.json
