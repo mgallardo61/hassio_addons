@@ -4,11 +4,12 @@ jobs:
   test:
     continue-on-error: true
     runs-on: ubuntu-latest
-    env:
-      VERSION: (%Y-%m-%d)
     steps:
       - uses: actions/checkout@v3
-          
+
+      - name: Set Date
+        id: set-date
+        run: echo "date=$('%Y-%m-%d')" >> $GITHUB_ENV
       - name: replace metube version
         run: |
           sed -i 's/"version": "[^"]*"/"version": "$VERSION"/g' metube/config.json
