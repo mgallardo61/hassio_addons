@@ -1,5 +1,9 @@
 name: Auto Update audiobookshelf
-on: workflow_dispatch
+on: 
+  schedule:
+    - cron: '0 23 * * *'  # Täglich um 23 Uhr UTC
+  workflow_dispatch:
+  
 jobs:
   test:
     continue-on-error: true
