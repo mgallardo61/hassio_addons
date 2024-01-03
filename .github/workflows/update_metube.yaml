@@ -16,7 +16,8 @@ jobs:
           
       - name: replace metube version
         run: |
-          sed -i 's/version: "[^"]*"/version: "${{ steps.get_metube_version.outputs.version }}"/g' metube/config.yaml
+          sed -i 's/"version": "[^"]*"/"version": "${{ steps.get_metube_version.outputs.version }}"/g' metube/config.yaml
+          sed -i 's/"upstream": "[^"]*"/"upstream": "${{ steps.get_metube_version.outputs.version }}"/g' metube/config.yaml
 
       - name: check if metube version was replaced
         uses: GuillaumeFalourd/assert-command-line-output@v2
