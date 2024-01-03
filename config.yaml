@@ -1,0 +1,24 @@
+name: audiobookshelf
+version: "2.7.1"
+slug: audiobookshelf
+description: audiobookshelf
+url: "https://github.com/advplyr/audiobookshelf/pkgs/container/audiobookshelf"
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+webui: http://[HOST]:[PORT:123]
+environment: {
+  "CONFIG_PATH": "/config/conf",
+  "METADATA_PATH": "/config/metadata",
+  "PORT": "123"
+}
+map:
+  - share:rw
+  - media:rw
+  - addon_config:rw
+ports:
+  123/tcp: 1234
+image: "ghcr.io/advplyr/audiobookshelf"
