@@ -16,7 +16,7 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
       - name: Simple replace string in file
         run: |
-          sed -i 's/version: "[^"]*"/"version": "${{ steps.get_version.outputs.version }}"/g' config.yaml
+          sed -i 's/version: "[^"]*"/version: "${{ steps.get_version.outputs.version }}"/g' config.yaml
 
       - name: Check if string was replaced
         uses: GuillaumeFalourd/assert-command-line-output@v2
