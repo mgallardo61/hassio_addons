@@ -10,8 +10,8 @@ jobs:
       - name: Set Date
         id: set-date
         run: |
-          echo "Date is $('%Y-%m-%d')"
-          echo "date=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
+          echo "Date is $(date +'%Y-%m-%d')"
+          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
         
       - name: replace metube version
         run: |
