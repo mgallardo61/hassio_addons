@@ -1,4 +1,4 @@
-name: Auto Update 
+name: Auto Update audiobookshelf
 on: workflow_dispatch
 jobs:
   test:
