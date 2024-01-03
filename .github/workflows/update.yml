@@ -7,24 +7,24 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Get Container Version
-        id: get_version
+      - name: get abs version
+        id: get_abs_version
         run: |
           VERSION=$(curl -s "https://api.github.com/repos/advplyr/audiobookshelf/releases/latest" | jq -r '.tag_name')
           echo "Container Version is $VERSION"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           
-      - name: Simple replace string in file
+      - name: replace abs version
         run: |
-          sed -i 's/version: "[^"]*"/version: "${{ steps.get_version.outputs.version }}"/g' config.yaml
+          sed -i 's/version: "[^"]*"/version: "${{ steps.get_abs_version.outputs.version }}"/g' config.yaml
 
-      - name: Check if string was replaced
+      - name: check if abs version was replaced
         uses: GuillaumeFalourd/assert-command-line-output@v2
         with:
           command_line: cat config.yaml
-          contains: "${{ steps.get_version.outputs.version }}"
+          contains: "${{ steps.get_abs_version.outputs.version }}"
 
-      - name: Commit report
+      - name: upload
         run: |
           git config --global user.name 'Your Name'
           git config --global user.email 'your-username@users.noreply.github.com'
