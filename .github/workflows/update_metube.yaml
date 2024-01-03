@@ -1,1 +1,32 @@
+name: Auto Update metube
+on: workflow_dispatch
+jobs:
+  test:
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: get metube version
+        id: get_metube_version
+        run: |
+          VERSION=$(curl -s "https://api.github.com/repos/advplyr/audiobookshelf/releases/latest" | jq -r '.tag_name' | sed 's/v//')
+          echo "Container Version is $VERSION"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          
+      - name: replace metube version
+        run: |
+          sed -i 's/version: "[^"]*"/version: "${{ steps.get_metube_version.outputs.version }}"/g' metube/config.yaml
 
+      - name: check if metube version was replaced
+        uses: GuillaumeFalourd/assert-command-line-output@v2
+        with:
+          command_line: cat metube/config.yaml
+          contains: "${{ steps.get_metube_version.outputs.version }}"
+
+      - name: upload
+        run: |
+          git config --global user.name 'Your Name'
+          git config --global user.email 'your-username@users.noreply.github.com'
+          git commit -am "Automated report"
+          git push
