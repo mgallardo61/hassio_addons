@@ -14,7 +14,7 @@ jobs:
       - name: get metube version
         id: get_metube_version
         run: |
-          VERSION=$(curl -s "https://hub.docker.com/v2/repositories/alexta69/metube/tags" | jq -r '.tag_name' | sed 's/v//')
+          VERSION=$(curl -s "https://hub.docker.com/v2/repositories/alexta69/metube/tags" | jq -r '.results[0].name')
           echo "Container Version is $VERSION"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           
