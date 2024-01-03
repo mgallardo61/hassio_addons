@@ -5,28 +5,20 @@ jobs:
     continue-on-error: true
     runs-on: ubuntu-latest
     env:
-      GH_TOKEN: ${{ github.token }}
+      VERSION: (%Y-%m-%d)
     steps:
       - uses: actions/checkout@v3
-      
-      - name: get metube version
-        id: get_metube_version
-        run: |
-          VERSION=$(%Y-%m-%d)
-  
-          echo "Container Version is $VERSION"
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
           
       - name: replace metube version
         run: |
-          sed -i 's/"version": "[^"]*"/"version": "${{ steps.get_metube_version.outputs.version }}"/g' metube/config.json
-          sed -i 's/"upstream": "[^"]*"/"upstream": "${{ steps.get_metube_version.outputs.version }}"/g' metube/config.json
+          sed -i 's/"version": "[^"]*"/"version": "$VERSION"/g' metube/config.json
+          sed -i 's/"upstream": "[^"]*"/"upstream": "$VERSION"/g' metube/config.json
 
       - name: check if metube version was replaced
         uses: GuillaumeFalourd/assert-command-line-output@v2
         with:
           command_line: cat metube/config.json
-          contains: "${{ steps.get_metube_version.outputs.version }}"
+          contains: "$VERSION"
 
       - name: upload
         run: |
