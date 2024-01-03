@@ -13,14 +13,14 @@ jobs:
         
       - name: replace metube version
         run: |
-          sed -i 's/"version": "[^"]*"/"version": "$date"/g' metube/config.json
-          sed -i 's/"upstream": "[^"]*"/"upstream": "$date"/g' metube/config.json
+          sed -i 's/"version": "[^"]*"/"version": "${{ steps.set-date.outputs.date }}"/g' metube/config.json
+          sed -i 's/"upstream": "[^"]*"/"upstream": "${{ steps.set-date.outputs.date }}"/g' metube/config.json
 
       - name: check if metube version was replaced
         uses: GuillaumeFalourd/assert-command-line-output@v2
         with:
           command_line: cat metube/config.json
-          contains: "$VERSION"
+          contains: "${{ steps.set-date.outputs.date }}"
 
       - name: upload
         run: |
