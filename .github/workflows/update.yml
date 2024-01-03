@@ -1,4 +1,4 @@
-name: Test your GitHub Actions
+name: Auto Update 
 on: workflow_dispatch
 jobs:
   test:
