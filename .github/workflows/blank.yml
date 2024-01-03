@@ -12,8 +12,8 @@ jobs:
         run: |
           VERSION=$(curl -s "https://api.github.com/repos/advplyr/audiobookshelf/releases/latest" | jq -r '.tag_name')
           echo "Container Version is $VERSION"
-         
           echo "version=$VERSION" >> $GITHUB_OUTPUT
+          
       - name: Simple replace string in file
         run: |
           sed -i 's/version: "[^"]*"/version: "${{ steps.get_version.outputs.version }}"/g' config.yaml
@@ -23,15 +23,6 @@ jobs:
         with:
           command_line: cat config.yaml
           contains: "${{ steps.get_version.outputs.version }}"
-
-      
-
-      - name: Use Container Version
-        run: |
-          echo "Using Container Version: ${{ steps.get_version.outputs.version }}"
-
-
-
 
       - name: Commit report
         run: |
