@@ -6,7 +6,7 @@
   "boot": "auto",
   "description": "Web GUI for youtube-dl",
   "environment": {
-    "DOWNLOAD_DIR": "/media/Downloads/metube/"
+    "DOWNLOAD_DIR": "/media/metube/"
   },
   "map": [
     "media:rw"
