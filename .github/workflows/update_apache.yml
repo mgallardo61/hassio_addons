@@ -13,6 +13,7 @@ jobs:
       - name: download apache
         uses: actions/checkout@v3
         with:
+          submodules: recursive
           path: /apache2-minimal
           repository: FaserF/hassio-addons
       
