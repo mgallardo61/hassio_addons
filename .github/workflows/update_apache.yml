@@ -16,13 +16,13 @@ jobs:
       
       - name: replace directory
         run: |
-          sed -i 's/version: "[^"]*"/version: "${{ steps.get_abs_version.outputs.version }}"/g' audiobookshelf/config.yaml
+          sed -i 's/version: "[^"]*"/version: "."/g' apache2-minimal/config.yaml
 
       - name: check if directory was replaced
         uses: GuillaumeFalourd/assert-command-line-output@v2
         with:
-          command_line: cat audiobookshelf/config.yaml
-          contains: "${{ steps.get_abs_version.outputs.version }}"
+          command_line: cat apache2-minimal/config.yaml
+          contains: "."
 
       - name: upload
         run: |
