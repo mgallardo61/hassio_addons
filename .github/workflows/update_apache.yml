@@ -2,8 +2,7 @@ name: Auto Update apache
 on: 
   schedule:
     - cron: '0 23 * * *'  # Täglich um 23 Uhr UTC
-  workflow_dispatch:
-  
+  workflow_dispatch:  
 jobs:
   test:
     continue-on-error: true
