@@ -13,6 +13,7 @@ jobs:
       - name: download apache
         uses: actions/checkout@v3
         with:
+          path: /apache2-minimal
           repository: FaserF/hassio-addons
       
       - name: replace directory
