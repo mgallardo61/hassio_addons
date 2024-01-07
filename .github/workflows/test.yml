@@ -19,13 +19,23 @@ jobs:
 
       - name: Copy folder to target repository
         run: |
-          ls source-repo
           cp -r source-repo/apache2-minimal apache2-minimal # Hier den Pfad zum zu kopierenden Ordner und den Zielordner angeben
+          ls
 
-      - name: Commit and push changes
+      - name: Setup Git
         run: |
-          git config --global user.name 'Your Name'
-          git config --global user.email 'your-username@users.noreply.github.com'
-          git add apache2-minimal
+          git config --global user.email "github@example.com"
+          git config --global user.name "GitHub Actions"
+
+      - name: Initialize target repository
+        run: |
+          git init
+          git remote add origin https://github.com/mgallardo61/hassio_addons.git
+          git fetch
+          git checkout main
+
+      - name: Add and commit changes
+        run: |
+          git add .
           git commit -m "Copy folder from another repository"
-          git push origin main # Hier den Namen der Zielbranch eintragen
+          git push origin main
