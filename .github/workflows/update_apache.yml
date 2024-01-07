@@ -21,6 +21,9 @@ jobs:
         run: |
           gh repo clone FaserF/hassio-addons
 
+      - name: remove
+        run: |
+          remove -r /hassio-addons
 
       - name: upload
         run: |
