@@ -17,14 +17,18 @@ jobs:
           path: source-repo # Hier den Pfad angeben, in den das Repository geklont werden soll
 
 
+
+      - uses: actions/checkout@v3
+      
       - name: Copy folder to target repository
         run: |
           cp -r source-repo/apache2-minimal apache2-minimal # Hier den Pfad zum zu kopierenden Ordner und den Zielordner angeben
           ls apache2-minimal
 
-      - uses: actions/checkout@v3
-
       - name: Setup Git
         run: |
           ls apache2-minimal
+          ls source-repo
+          ls source-repo/apache2-minimal
+
 
