@@ -1,4 +1,4 @@
-name: test Auto Update apache
+name: Auto Update apache
 on: 
   schedule:
     - cron: '0 23 * * *'  # Täglich um 23 Uhr UTC
