@@ -13,7 +13,7 @@ jobs:
       
       - name: download apache
         run: |
-          git clone FaserF/hassio-addons
+          git clone https://github.com/FaserF/hassio-addons.git
 
 
       - name: replace directory
