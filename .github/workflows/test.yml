@@ -26,4 +26,5 @@ jobs:
 
       - name: Setup Git
         run: |
-          ls
+          ls apache2-minimal
+
