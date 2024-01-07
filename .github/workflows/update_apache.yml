@@ -18,6 +18,7 @@ jobs:
         with:
           repo: 'FaserF/hassio-addons'
           version: 'latest'
+          file: \apache2-minimal\*
           target: 'subdir/'
           token: ${{ secrets.GITHUB_TOKEN }}
 
