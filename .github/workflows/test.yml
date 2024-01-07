@@ -22,21 +22,15 @@ jobs:
         run: |
           cp -r source-repo/apache2-minimal . # Hier den Pfad zum zu kopierenden Ordner und den Zielordner angeben
 
-      - name: ls
+      - name: replace mapping
         run: |
-          ls 
-          
-      - name: ls
-        run: |
-          ls apache2-minimal
+          sed -i 's/media:rw/config:rw/g' apache2-minimal/config.yaml
 
-      - name: ls
-        run: |
-          ls source-repo
-          
-      - name: ls
-        run: |
-          ls source-repo/apache2-minimal
+      - name: check if mapping was replaced
+        uses: GuillaumeFalourd/assert-command-line-output@v2
+        with:
+          command_line: cat apache2-minimal/config.yaml
+          contains: "config:rw"
 
       - name: upload
         run: |
