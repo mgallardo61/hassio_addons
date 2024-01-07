@@ -11,12 +11,12 @@ jobs:
       - uses: actions/checkout@v3
 
       
-      - name: download apache
-        run: |
-          git clone -n --depth=1 --filter=tree:0 https://github.com/cirosantilli/test-git-partial-clone-big-small-no-bigtree
-          cd test-git-partial-clone-big-small-no-bigtree
-          git sparse-checkout set --no-cone small
-          git checkout
+      - uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          repo: 'FaserF/hassio-addons'
+          version: 'latest'
+          target: 'subdir/'
+          token: ${{ secrets.GITHUB_TOKEN }}
 
           
       - name: upload
