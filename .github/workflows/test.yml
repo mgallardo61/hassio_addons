@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    
       - uses: actions/checkout@v3
       
       - name: Checkout source repository
@@ -18,20 +17,23 @@ jobs:
           repository: FaserF/hassio-addons # Hier den Benutzernamen und den Namen des Quellrepositories eintragen
           ref: main # Hier den Namen der Branch oder des Tags eintragen, von dem du kopieren möchtest
           path: source-repo # Hier den Pfad angeben, in den das Repository geklont werden soll
-
-
-
       
       - name: Copy folder to target repository
         run: |
           cp -r source-repo/apache2-minimal apache2-minimal # Hier den Pfad zum zu kopierenden Ordner und den Zielordner angeben
-          ls apache2-minimal
-          ls
 
       - name: Setup Git
         run: |
+          ls 
+          
+      - name: Setup Git
+        run: |
           ls apache2-minimal
+
+      - name: Setup Git
+        run: |
           ls source-repo
+          
+      - name: Setup Git
+        run: |
           ls source-repo/apache2-minimal
-
-
