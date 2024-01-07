@@ -12,7 +12,7 @@ jobs:
       - name: Checkout source repository
         uses: actions/checkout@v2 # Checkt das Zielrepository aus
         with:
-          repository: username/source-repo # Hier den Benutzernamen und den Namen des Quellrepositories eintragen
+          repository: apache2-minimal # Hier den Benutzernamen und den Namen des Quellrepositories eintragen
           ref: main # Hier den Namen der Branch oder des Tags eintragen, von dem du kopieren möchtest
           path: source-repo # Hier den Pfad angeben, in den das Repository geklont werden soll
 
