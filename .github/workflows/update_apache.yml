@@ -13,13 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: dsaltares/fetch-gh-release-asset@master
-        with:
-          repo: 'FaserF/hassio-addons'
-          file: 'README.MD'
-          target: 'subdir/README.MD'
-          token: ${{ secrets.GITHUB_TOKEN }}
 
+          
+      - name: download apache
+        run: |
+          gh repo clone FaserF/hassio-addons
+          ls /hassio-addons
 
 
       - name: upload
@@ -31,6 +30,14 @@ jobs:
           git commit -am "Automated report"
           git push
 
+      - uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          repo: 'FaserF/hassio-addons'
+          file: 'README.MD'
+          target: 'subdir/README.MD'
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+          
       - name: download apache
         run: |
           git clone https://github.com/FaserF/hassio-addons.git
