@@ -31,6 +31,11 @@ jobs:
           command_line: cat apache2-minimal/config.yaml
           contains: "config:rw"
 
+      - name: remove
+        run: |
+          git rm --cached source-repo
+          remove -r /source-repo
+          
       - name: upload
         run: |
           git add apache2-minimal
