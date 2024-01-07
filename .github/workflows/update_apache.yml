@@ -28,5 +28,4 @@ jobs:
 
       - name: upload
         run: |
-          git add --all
-          git push
+          echo ls
