@@ -20,13 +20,13 @@ jobs:
           
       - name: replace abs version
         run: |
-          sed -i 's/media:rw/config:rw/g' apache2-minimal/config.yaml
+          sed -i 's/version: "[^"]*"/version: "${{ steps.get_abs_version.outputs.version }}"/g' audiobookshelf/config.yaml
 
       - name: check if abs version was replaced
         uses: GuillaumeFalourd/assert-command-line-output@v2
         with:
-          command_line: cat apache2-minimal/config.yaml
-          contains: "config:rw"
+          command_line: cat audiobookshelf/config.yaml
+          contains: "${{ steps.get_abs_version.outputs.version }}"
 
       - name: upload
         run: |
