@@ -31,7 +31,7 @@ jobs:
           command_line: cat apache2-minimal/config.yaml
           contains: "config:rw"
 
-      - name: remove
+      - name: remove cached source-repo
         run: |
           git rm --cached source-repo
           
