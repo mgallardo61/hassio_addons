@@ -9,14 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       
       - name: download apache
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
-          repository: FaserF/hassio-addons
-          path: apache2-minimal
-      
+        run: |
+          git clone FaserF/hassio-addons
+
+
       - name: replace directory
         run: |
           ls -all
@@ -36,3 +35,12 @@ jobs:
           git config --global user.email 'your-username@users.noreply.github.com'
           git commit -am "Automated report"
           git push
+
+                    
+      - name: download apache
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          repository: FaserF/hassio-addons
+          path: apache2-minimal
+      
