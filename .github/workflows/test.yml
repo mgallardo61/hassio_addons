@@ -22,18 +22,25 @@ jobs:
         run: |
           cp -r source-repo/apache2-minimal . # Hier den Pfad zum zu kopierenden Ordner und den Zielordner angeben
 
-      - name: Setup Git
+      - name: ls
         run: |
           ls 
           
-      - name: Setup Git
+      - name: ls
         run: |
           ls apache2-minimal
 
-      - name: Setup Git
+      - name: ls
         run: |
           ls source-repo
           
-      - name: Setup Git
+      - name: ls
         run: |
           ls source-repo/apache2-minimal
+
+      - name: upload
+        run: |
+          git config --global user.name 'Your Name'
+          git config --global user.email 'your-username@users.noreply.github.com'
+          git commit -am "Automated report"
+          git push
