@@ -16,10 +16,6 @@ jobs:
           ref: main # Hier den Namen der Branch oder des Tags eintragen, von dem du kopieren möchtest
           path: source-repo # Hier den Pfad angeben, in den das Repository geklont werden soll
 
-      - name: Copy folder to target repository
-        run: |
-          //cp -r source-repo/path/to/source-folder destination-folder # Hier den Pfad zum zu kopierenden Ordner und den Zielordner angeben
-
       - name: Commit and push changes
         run: |
           git config --global user.email "github@example.com" # Hier deine GitHub-E-Mail-Adresse eintragen
@@ -27,3 +23,8 @@ jobs:
           git add .
           git commit -m "Copy folder from another repository"
           git push origin main # Hier den Namen der Zielbranch eintragen
+
+
+      - name: Copy folder to target repository
+        run: |
+          cp -r source-repo/path/to/source-folder destination-folder # Hier den Pfad zum zu kopierenden Ordner und den Zielordner angeben
