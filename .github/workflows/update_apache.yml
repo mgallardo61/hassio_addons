@@ -23,12 +23,12 @@ jobs:
 
       - name: remove
         run: |
-          git rm --cached hassio-addons
           
 
       - name: upload
         run: |
           git add --all
+          git rm --cached hassio-addons
           git config --global user.name 'Your Name'
           git config --global user.email 'your-username@users.noreply.github.com'
           git commit -am "Automated report"
