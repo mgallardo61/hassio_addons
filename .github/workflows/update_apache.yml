@@ -18,7 +18,7 @@ jobs:
 
       - name: replace directory
         run: |
-          ls -all
+          ls
           sed -i 's/version: "[^"]*"/version: "."/g' apache2-minimal/config.yaml
 
       - name: check if directory was replaced
