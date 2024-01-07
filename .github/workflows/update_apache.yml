@@ -15,6 +15,7 @@ jobs:
         with:
           submodules: recursive
           repository: FaserF/hassio-addons
+          path: apache2-minimal
       
       - name: replace directory
         run: |
