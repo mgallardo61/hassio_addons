@@ -34,7 +34,6 @@ jobs:
       - name: remove
         run: |
           git rm --cached source-repo
-          rm -r /source-repo
           
       - name: upload
         run: |
