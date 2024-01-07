@@ -38,4 +38,4 @@ jobs:
         run: |
           git add apache2-minimal
           git commit -m "Copy folder from another repository"
-          git push origin main
+          git push
