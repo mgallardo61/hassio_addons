@@ -24,7 +24,7 @@ jobs:
       - name: remove
         run: |
           git rm --cached hassio-addons
-          remove -r /hassio-addons
+          
 
       - name: upload
         run: |
@@ -34,6 +34,12 @@ jobs:
           git commit -am "Automated report"
           git push
 
+      - name: remove
+        run: |
+          git rm --cached hassio-addons
+          remove -r /hassio-addons
+
+          
       - uses: dsaltares/fetch-gh-release-asset@master
         with:
           repo: 'FaserF/hassio-addons'
