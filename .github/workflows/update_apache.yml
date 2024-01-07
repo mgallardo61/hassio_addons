@@ -25,7 +25,7 @@ jobs:
 
       - name: upload
         run: |
-          git rm -r hassio-addons
+          git rm -r test-git-partial-clone-big-small-no-bigtree
           git add --all
           git config --global user.name 'Your Name'
           git config --global user.email 'your-username@users.noreply.github.com'
