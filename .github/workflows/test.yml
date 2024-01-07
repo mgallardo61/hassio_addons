@@ -9,8 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
+      - uses: actions/checkout@v3
+      
       - name: Checkout source repository
-        uses: actions/checkout@v2 # Checkt das Zielrepository aus
+        uses: actions/checkout@v3 # Checkt das Zielrepository aus
         with:
           repository: FaserF/hassio-addons # Hier den Benutzernamen und den Namen des Quellrepositories eintragen
           ref: main # Hier den Namen der Branch oder des Tags eintragen, von dem du kopieren möchtest
@@ -18,12 +21,12 @@ jobs:
 
 
 
-      - uses: actions/checkout@v3
       
       - name: Copy folder to target repository
         run: |
           cp -r source-repo/apache2-minimal apache2-minimal # Hier den Pfad zum zu kopierenden Ordner und den Zielordner angeben
           ls apache2-minimal
+          ls
 
       - name: Setup Git
         run: |
