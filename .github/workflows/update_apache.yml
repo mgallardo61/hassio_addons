@@ -20,7 +20,6 @@ jobs:
       - name: download apache
         run: |
           gh repo clone FaserF/hassio-addons
-          ls /hassio-addons
 
 
       - name: upload
