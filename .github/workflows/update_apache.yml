@@ -15,22 +15,8 @@ jobs:
         run: |
           git clone https://github.com/FaserF/hassio-addons.git
 
-
-      - name: replace directory
-        run: |
-          ls
-          sed -i 's/version: "[^"]*"/version: "."/g' apache2-minimal/config.yaml
-
-      - name: check if directory was replaced
-        uses: GuillaumeFalourd/assert-command-line-output@v2
-        with:
-          command_line: cat apache2-minimal/config.yaml
-          contains: "."
-
       - name: upload
         run: |
-          ls
-          git add -A
           git config --global user.name 'Your Name'
           git config --global user.email 'your-username@users.noreply.github.com'
           git commit -am "Automated report"
@@ -44,3 +30,14 @@ jobs:
           repository: FaserF/hassio-addons
           path: apache2-minimal
       
+
+      - name: replace directory
+        run: |
+          ls
+          sed -i 's/version: "[^"]*"/version: "."/g' apache2-minimal/config.yaml
+
+      - name: check if directory was replaced
+        uses: GuillaumeFalourd/assert-command-line-output@v2
+        with:
+          command_line: cat apache2-minimal/config.yaml
+          contains: "."
