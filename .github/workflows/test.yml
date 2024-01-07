@@ -19,7 +19,7 @@ jobs:
 
       - name: Copy folder to target repository
         run: |
-          ls
+          ls source-repo
           #cp -r source-repo/path/to/source-folder destination-folder # Hier den Pfad zum zu kopierenden Ordner und den Zielordner angeben
 
       - name: Commit and push changes
