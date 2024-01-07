@@ -23,6 +23,7 @@ jobs:
 
       - name: remove
         run: |
+          git rm --cached hassio-addons
           remove -r /hassio-addons
 
       - name: upload
