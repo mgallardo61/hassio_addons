@@ -13,9 +13,12 @@ jobs:
       
       - name: download apache
         run: |
-          git clone https://github.com/FaserF/hassio-addons.git
-          ls /hassio-addons
+          git clone -n --depth=1 --filter=tree:0 \ https://github.com/cirosantilli/test-git-partial-clone-big-small-no-bigtree
+          cd test-git-partial-clone-big-small-no-bigtree
+          git sparse-checkout set --no-cone small
+          git checkout
 
+          
       - name: upload
         run: |
           git add --all
@@ -24,7 +27,12 @@ jobs:
           git commit -am "Automated report"
           git push
 
-                    
+      - name: download apache
+        run: |
+          git clone https://github.com/FaserF/hassio-addons.git
+          ls /hassio-addons
+
+          
       - name: download apache
         uses: actions/checkout@v3
         with:
