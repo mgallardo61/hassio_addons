@@ -28,4 +28,4 @@ jobs:
 
       - name: upload
         run: |
-          echo ls
+          ls
