@@ -21,7 +21,7 @@ ingress: true
 init: false
 panel_icon: mdi:web-box
 options:
-  document_root: /share/htdocs
+  document_root: config/htdocs
   default_conf: default
   default_ssl_conf: default
   website_name: null
