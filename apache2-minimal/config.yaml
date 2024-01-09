@@ -21,7 +21,7 @@ ingress: true
 init: false
 panel_icon: mdi:web-box
 options:
-  document_root: /config/apache
+  document_root: /config/apache2
   default_conf: default
   default_ssl_conf: default
   website_name: null
