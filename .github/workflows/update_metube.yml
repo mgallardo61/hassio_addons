@@ -29,9 +29,25 @@ jobs:
           command_line: cat metube/config.json
           contains: "${{ steps.get_metube_version.outputs.version }}"
 
+      - name: remove output.txt
+        run: |
+          rm output.txt
+          
       - name: upload
         run: |
-          git config --global user.name 'Your Name'
-          git config --global user.email 'your-username@users.noreply.github.com'
-          git commit -am "Automated report"
-          git push
+          if [[ $(git status --porcelain) ]]; then
+            git config --global user.name 'Your Name'
+            git config --global user.email 'your-username@users.noreply.github.com'
+            git commit -am "Automated report"
+            git push
+          else
+           echo "No changes to commit."
+          fi
+
+
+
+        
+          #git config --global user.name 'Your Name'
+          #git config --global user.email 'your-username@users.noreply.github.com'
+          #git commit -am "Automated report"
+          #git push
