@@ -28,6 +28,10 @@ jobs:
           command_line: cat audiobookshelf/config.yaml
           contains: "${{ steps.get_abs_version.outputs.version }}"
 
+      - name: remove output.txt
+        run: |
+          rm output.txt
+          
       - name: upload
         run: |
           if [[ $(git status --porcelain) ]]; then
