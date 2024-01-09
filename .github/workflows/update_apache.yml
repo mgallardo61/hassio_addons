@@ -34,7 +34,7 @@ jobs:
 
       - name: remove cached source-repo
         run: |
-          rm --r source-repo
+          rm -r source-repo
           rm output.txt
           
       - name: upload #git add apache2-minimal
