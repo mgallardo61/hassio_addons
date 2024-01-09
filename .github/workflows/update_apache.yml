@@ -24,13 +24,13 @@ jobs:
       - name: replace mapping
         run: |
           sed -i 's/media:rw/config:rw/g' apache2-minimal/config.yaml
-          sed -i 's/\/share\/htdocs/\/config\/apache/g' apache2-minimal/config.yaml
+          sed -i 's/\/share\/htdocs/\/config\/apache2/g' apache2-minimal/config.yaml
 
       - name: check if mapping was replaced
         uses: GuillaumeFalourd/assert-command-line-output@v2
         with:
           command_line: cat apache2-minimal/config.yaml
-          contains: "config:rw2"
+          contains: "config:rw"
 
       #- name: remove cached source-repo
       #  run: |
