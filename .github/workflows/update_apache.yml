@@ -37,9 +37,10 @@ jobs:
           rm -r source-repo
           rm output.txt
           
-      - name: upload #git add apache2-minimal
+      - name: upload
         run: |
           git config --global user.name 'Your Name'
           git config --global user.email 'your-username@users.noreply.github.com'
-          
           git push
+      #git commit -am "Automated report"
+      #git add apache2-minimal
