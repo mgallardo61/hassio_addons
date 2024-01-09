@@ -24,7 +24,7 @@ jobs:
           sed -i 's/"upstream": "[^"]*"/"upstream": "${{ steps.get_metube_version.outputs.version }}"/g' metube/config.json
 
       - name: check if metube version was replaced
-        uses: GuillaumeFalourd/assert-command-line-output@v2
+        uses: GuillaumeFalourd/assert-command-line-output@v2.2
         with:
           command_line: cat metube/config.json
           contains: "${{ steps.get_metube_version.outputs.version }}"
