@@ -27,7 +27,7 @@ jobs:
           sed -i 's/\/share\/htdocs/\/config\/apache/g' apache2-minimal/config.yaml
 
       - name: check if mapping was replaced
-        uses: GuillaumeFalourd/assert-command-line-output@v2
+        uses: GuillaumeFalourd/assert-command-line-output@v2.2
         with:
           command_line: cat apache2-minimal/config.yaml
           contains: "config:rw"
