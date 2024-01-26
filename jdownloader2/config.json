@@ -25,7 +25,8 @@
     "3129/tcp": "MyJDownloader port"
   },
   "map": [
-    "media:rw"
+    "media:rw",
+    "share:rw"
   ],
   "hassio_role": "default"
 }
