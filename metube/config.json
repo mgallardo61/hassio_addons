@@ -6,10 +6,10 @@
   "boot": "auto",
   "description": "Web GUI for youtube-dl",
   "environment": {
-    "DOWNLOAD_DIR": "/media/metube/"
+    "DOWNLOAD_DIR": "/share/metube/"
   },
   "map": [
-    "media:rw"
+    "share:rw"
   ],
   "image": "alexta69/metube",
   "version": "2024-01-05",
