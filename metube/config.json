@@ -6,7 +6,8 @@
   "boot": "auto",
   "description": "Web GUI for youtube-dl",
   "environment": {
-    "DOWNLOAD_DIR": "/share/SSD/metube"
+    "DOWNLOAD_DIR": "/share/SSD/metube",
+    "TEMP_DIR": "/share/SSD/temp/metube"
   },
   "map": [
     "share:rw"
