@@ -1,7 +1,7 @@
 name: Auto Update apache
 on: 
-  schedule:
-    - cron: '0 23 * * *'  # Täglich um 23 Uhr UTC
+ # schedule:
+   # - cron: '0 23 * * *'  # Täglich um 23 Uhr UTC
   workflow_dispatch:  
 
 jobs:
